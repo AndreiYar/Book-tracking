@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { createFilter } from 'react-search-input';
 import { loadBooks } from '../../../store/actions/books';
@@ -49,13 +49,13 @@ export const Books = () => {
     dispatch(loadBooks());
   }, []);
 
-  const handleGridMode = () => {
+  const handleGridMode = useCallback(() => {
     setSwitchMode('grid');
-  }
+  }, []);
 
-  const handleListMode = () => {
+  const handleListMode = useCallback(() => {
     setSwitchMode('list');
-  }
+  }, []);
 
   const handleOpen = ({ image, title, author, description }: IBookState) => {
     setSelectedBook({
@@ -68,9 +68,9 @@ export const Books = () => {
     setOpen(true);
   };
 
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setOpen(false);
-  };
+  }, []);
 
   return (
     <Wrapper>

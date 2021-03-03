@@ -6,7 +6,7 @@ import { IBookState } from '../Books';
 
 interface IBookGridProps {
   books: IBookData[];
-  handleOpen: ({ image, title, author, description }: IBookState) => void;
+  handleOpen: (book: IBookState) => void;
 }
 
 export const BookGrid: React.FC<IBookGridProps> = ({ books, handleOpen }) => {

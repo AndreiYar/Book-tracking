@@ -7,7 +7,7 @@ import { useMode } from '../../../../hooks/useMode';
 import { IBookState } from '../../Books';
 
 interface IBookItem extends IBookState{
-  handleOpen: ({ image, title, author, description }:IBookState ) => void;
+  handleOpen: (book:IBookState ) => void;
 }
 
 export const BookItem: React.FC<IBookItem> = ({ image, title, author, description, handleOpen }) => {
